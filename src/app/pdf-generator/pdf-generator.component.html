@@ -1,0 +1,114 @@
+
+<div>
+    <button (click)="handleDownload()">print</button>
+</div>
+
+<div class="a4-test">
+<div id="capture" class="pdf-generator">
+  
+  <div class="header">
+    <div class="image-div">
+      <img class="image" [src]="base64Data" />
+    </div>
+    <div class="invoice">
+        <h5 class="h5-invoice">Invoice</h5>
+        <h5 class="h5-con"># INV-2019080</h5>
+    </div>
+
+    <div class="codingmart-address">
+        <ul class="ul">
+            <li style="font-size:15px; font-weight: 500;">Codingmart Technologies Private Limited</li>
+            <li class="li">2nd Floor, Sri Dathri Nivas</li>
+            <li class="li">Nagawara</li>
+            <li class="li">Bangalore Karnataka 560045</li>
+            <li class="li">India</li>
+            <li class="li">GSTIN 29AAGCC2850B1ZY</li>
+        </ul>
+    </div>
+    <div class="balance-due">
+        <h5 class="total">Balance Due</h5>
+        <h5 class="totalAmount">Rs {{totalAmount}}</h5>
+    </div>
+  </div>
+
+  <div class="client">
+    <div class="billing">
+        <h4 class="bill-to">Bill to</h4>
+        <ul class="ul">
+            <li style="font-size:14px; font-weight: 500;">{{data.client.name}}</li>
+            <li class="li">{{data.client.address1}},</li>
+            <li class="li">{{data.client.address2}},</li>
+            <li class="li">{{data.client.city}}</li>
+            <li class="li">{{data.client.pinCode}} Karnataka</li>
+            <li class="li">India</li>
+            <li class="li">GSTIN 29AAGCC2850B1ZY</li>
+        </ul>
+    </div>
+    <div class="due-date">
+        <div class="h5-date">Invoice Date :</div>
+        <div class="span">{{currentDate}}</div>
+        <div class="h5-date">Terms : </div>
+        <div class="span">Due on Receipt</div>
+        <div class="h5-date">Due Date : </div>
+        <div class="span">{{currentDate}}</div>
+      </div>
+  </div>
+  
+  <div style="font-weight: 200;">Place Of Supply: Karnataka (29)</div>
+
+  <div>
+    <table mdbTable class="table">
+        <thead class="thead">
+            <tr>
+                <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr mdbTableCol *ngFor="let el of data.element">
+                <th scope="row">{{el.position}}</th>
+                <td>{{el.itemsDescription}}</td>
+                <td>{{el.quantity}}</td>
+                <td>{{el.rate}}</td>
+                <td>{{el.cgst}}</td>
+                <td>{{el.sgst}}</td>
+                <td>{{el.amount}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="grid-padding">
+        <div class="grid-total">
+                <div class="grid-child">Sub Total</div>
+                <div class="grid-child pad">{{totalAmount}}</div>
+                <div class="grid-child">CGST (9%)</div>
+                <div class="grid-child pad">0.09</div>
+                <div class="grid-child">SGST (9%)</div>
+                <div class="grid-child pad">0.09</div>
+                <div class="grid-child text">Total</div>
+                <div class="grid-child pad">{{totalAmount}}</div>
+                <div class="grid-child text textt">Balance Due</div>
+                <div class="grid-child textt pad">{{totalAmount}}</div>
+        </div>
+    </div>
+
+    <div class="notes">
+        <h4 class="h4-notes">Notes</h4>
+        <p class="p">Thanks for your business. Please note the bank account details. Every calendar month has been taken as 30 days irrespective of number
+            of days for business calculations.
+        </p>
+        <h5 class="h5-notes">Bank  : Kotak Mahindra Bank</h5>
+        <h5 class="h5-notes">Account number : 4412953770</h5>
+        <h5 class="h5-notes">IFSC CODE : KKBK0008066</h5>
+        <h5 class="h5-notes">SWIFT CODE : KKBKINBBCPC</h5>
+        
+    </div>
+
+    <div class="terms">
+        <h4 class="h4-terms">Terms & Conditions</h4>
+        <h3 class="h3-terms">**We prefer the mode of payment to be online transfer/ NEFT to the bank account
+            mentioned above**.</h3>
+    </div>
+</div>
+
+</div>

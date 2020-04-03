@@ -1,0 +1,245 @@
+<!-- <div class="pdf-parent">
+  <div class="client-details">
+    <div class="form-row">
+      <div class="col-md-6">
+        <div class="md-form form-group">
+          <input
+            mdbInput
+            type="text"
+            [(ngModel)]="companyName"
+            class="form-control"
+            id="inputEmail4MD"
+          />
+          <label for="inputEmail4MD">ClientName</label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="md-form form-group">
+          <input
+            mdbInput
+            type="text"
+            [(ngModel)]="address1"
+            class="form-control"
+            id="inputAddressMD"
+          />
+          <label for="inputAddressMD">Address</label>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="md-form form-group">
+          <input
+            mdbInput
+            type="text"
+            [(ngModel)]="address2"
+            class="form-control"
+            id="inputAddress2MD"
+          />
+          <label for="inputAddress2MD">Address 2</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="md-form form-group">
+        <input
+          mdbInput
+          type="text"
+          [(ngModel)]="city"
+          class="form-control"
+          id="inputCityMD"
+        />
+        <label for="inputCityMD">City</label>
+      </div>
+    </div>
+    <br />
+    <div class="col-md-6">
+      <div class="md-form form-group">
+        <input
+          mdbInput
+          type="text"
+          [(ngModel)]="pinCode"
+          class="form-control"
+          id="inputZipMD"
+        />
+        <label for="inputZipMD">Pincode</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-data">
+    <div class="form-table">
+      <div class="form-row">
+        <div class="col-7">
+          <input
+            mdbInput
+            type="text"
+            [(ngModel)]="itemsDescription"
+            class="form-control"
+            placeholder="item & Description"
+          />
+        </div>
+
+        <div class="col">
+          <input
+            mdbInput
+            type="number"
+            [(ngModel)]="quantity"
+            class="form-control"
+            placeholder="quantity"
+          />
+        </div>
+
+        <div class="col">
+          <input
+            mdbInput
+            type="number"
+            [(ngModel)]="rate"
+            class="form-control"
+            placeholder="rate"
+          />
+        </div>
+
+        <div class="col">
+          <button class="button" (click)="add()">add</button>
+        </div>
+      </div>
+    </div>-->
+
+<!-- </div>
+</div> -->
+<app-header></app-header>
+<div class="pdf-parent">
+  <div class="flex-div">
+    <div class="input-field">
+      <mat-form-field appearance="outline">
+        <mat-label>Item & Description</mat-label>
+        <input
+          matInput
+          [(ngModel)]="item.itemsDescription"
+          placeholder="Item & Description"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="input-field">
+      <mat-form-field appearance="outline">
+        <mat-label>Quantity</mat-label>
+        <input
+          type="number"
+          [(ngModel)]="item.quantity"
+          matInput
+          placeholder="Quantity"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="input-field">
+      <mat-form-field appearance="outline">
+        <mat-label>Rate</mat-label>
+        <input
+          type="number"
+          [(ngModel)]="item.rate"
+          matInput
+          placeholder="Rate"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="input-field">
+      <button *ngIf="addFlag" (click)="add()" mat-raised-button color="primary">
+        Add
+      </button>
+    </div>
+
+    <div class="input-field">
+      <button
+        *ngIf="updateFlag"
+        (click)="update()"
+        mat-raised-button
+        color="primary"
+      >
+        Modify
+      </button>
+    </div>
+  </div>
+  <div class="table">
+    <table
+      mdbTable
+      mdbTableScroll
+      scrollY="true"
+      scrollX="false"
+      maxHeight="200"
+      bordered="true"
+    >
+      <thead>
+        <tr>
+          <th *ngFor="let head of headElements; let i = index" scope="col">
+            {{ head }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let el of elements; let index = index">
+          <td>{{ el.position }}</td>
+          <td>{{ el.itemsDescription }}</td>
+          <td>{{ el.quantity }}</td>
+          <td>{{ el.rate }}</td>
+          <td>{{ el.cgst }}</td>
+          <td>{{ el.sgst }}</td>
+          <td>{{ el.amount }}</td>
+          <td>
+            <button (click)="modify(index)">modify</button
+            ><button (click)="delete(index)">delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<button mat-button (click)="toggleModal(true)">Generate PDF</button>
+
+<div *ngIf="modalOpen === true" class="modal-wrapper">
+  <div class="modal">
+    <div style="display:flex; justify-content: center; width: 100%;">
+      <h2>Client Details</h2>
+    </div>
+
+    <div class="input-field">
+      <mat-form-field appearance="legacy">
+        <mat-label>Client Name</mat-label>
+        <input matInput [(ngModel)]="client.name" placeholder="Client Name" />
+      </mat-form-field>
+    </div>
+    <div class="input-field">
+      <mat-form-field appearance="legacy">
+        <mat-label>Address 1</mat-label>
+        <input matInput [(ngModel)]="client.address1" placeholder="Address 1" />
+      </mat-form-field>
+    </div>
+    <div class="input-field">
+      <mat-form-field appearance="legacy">
+        <mat-label>Address 2</mat-label>
+        <input matInput [(ngModel)]="client.address2" placeholder="Address 2" />
+      </mat-form-field>
+    </div>
+    <div class="input-field">
+      <mat-form-field appearance="legacy">
+        <mat-label>City</mat-label>
+        <input matInput [(ngModel)]="client.city" placeholder="City" />
+      </mat-form-field>
+    </div>
+    <div class="input-field">
+      <mat-form-field appearance="legacy">
+        <mat-label>Pin Code</mat-label>
+        <input matInput [(ngModel)]="client.pinCode" placeholder="Pin Code" />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="generate()">
+        Generate
+      </button>
+      <button mat-button (click)="toggleModal(false)">Cancel</button>
+    </div>
+  </div>
+</div>

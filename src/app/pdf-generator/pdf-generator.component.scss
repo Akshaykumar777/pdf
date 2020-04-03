@@ -1,0 +1,164 @@
+.image{
+    width: 24vw
+}
+
+.pdf-generator{
+    padding: 6%;
+}
+
+.header{
+    display: grid;
+    grid-template-columns: auto auto ;
+    justify-content: space-between;
+}
+
+.span{
+    font-size: 14px;
+    margin-left: 79px;
+    color: black;
+}
+
+.h5-date{
+    font-size: 15px;
+    color: grey;
+}
+
+.invoice, .balance-due{
+    text-align: right;
+}
+
+.li{
+    font-size: 13px;
+    color: grey;
+}
+
+.due-date{
+    text-align: right;
+    padding-top: 72px;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.client{
+    display: flex;
+    justify-content: space-between;
+}
+
+.bill-to{
+    margin-bottom: 0px;
+    font-weight: 500;
+    color: grey;
+    position: relative;
+    left: 4px;
+}
+
+.balance-due{
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.ul{
+    list-style: none;
+    position: relative; 
+    left: -37px;
+}
+
+.h5-invoice{
+    font-size: 46px;
+    margin-bottom: 20px;
+    margin-top: 27px;
+}
+
+.h5-con{
+    font-size: 15px;
+    font-weight: 500;
+    color: grey;
+}
+
+.table{
+    margin-top: 33px;
+}
+
+.thead{
+    background: black;
+    color: white;
+}
+
+.grid-total{
+    display: grid;
+    grid-template-columns: auto auto;
+    height: 32vh;
+    width: 35vw;
+    text-align: right;
+}
+
+.total{
+    margin-bottom: 0px;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.totalAmount{
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.grid-child{
+    padding: 2% 0%;
+}
+
+.grid-padding{
+    padding-left: 59%;
+}
+
+.text{
+    font-weight: 700;
+}
+
+.textt{
+    background: whitesmoke;
+}
+
+.pad{
+    padding-right: 8px;
+}
+
+.notes{
+    margin-top: 39px;
+}
+
+.h4-notes{
+    margin-bottom: 7px;
+    color: grey;
+}
+
+.p{
+    font-size: 13px
+}
+
+.h5-notes{
+    font-size: 13px;
+    margin-bottom: 0px;
+}
+
+.terms{
+    margin-top: 31px;
+}
+
+.h4-terms{
+    margin-bottom: 4px;
+    color: grey;
+}
+
+.h3-terms{  
+    line-height: inherit;
+}
+
+.no-scroll {
+    overflow: visible !important;
+}
+
+.a4{
+    width: 595px;
+    height: 842px;
+}

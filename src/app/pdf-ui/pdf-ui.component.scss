@@ -1,0 +1,89 @@
+table {
+  width: 75%;
+}
+
+.pdf-parent {
+  padding: 1rem;
+}
+
+.flex-div {
+  display: flex;
+}
+
+.modal-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.modal {
+  .input-field {
+    .mat-form-field-type-mat-input {
+      width: 100%;
+    }
+  }
+}
+
+.modal {
+  position: relative;
+  display: block;
+  width: 50vw;
+  height: 75vh;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.input-field {
+  margin: 1rem;
+}
+
+.md-form {
+  width: 25vw;
+}
+
+.client-details {
+  border: 1px solid grey;
+  width: 50vw;
+  position: relative;
+  left: 25px;
+  top: 5px;
+  padding: 1%;
+  background: white;
+}
+
+.button {
+  position: relative;
+  top: 2px;
+  padding: 2% 28%;
+  left: 22px;
+  background: blueviolet;
+  color: white;
+  border-style: none;
+}
+
+.table {
+  width: 90vw;
+  // position: relative;
+  // left: 13px;
+  // top: 10px;
+}
+
+.form-table {
+  margin-bottom: 49px;
+}
+
+.table-data {
+  width: 96vw;
+  position: relative;
+  left: 24px;
+  padding: 3%;
+  padding-left: 1%;
+  border: 1px solid grey;
+  top: 15px;
+}
